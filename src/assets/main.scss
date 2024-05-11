@@ -1,0 +1,13 @@
+@import './base.css';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
