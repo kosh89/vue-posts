@@ -1,5 +1,6 @@
 <script setup>
 import MyInput from "@/components/MyInput.vue";
+import MyButton from "@/components/MyButton.vue";
 import {ref} from "vue";
 import {useRootStore} from "@/stores/root.js";
 import axios from "axios";
@@ -25,9 +26,9 @@ const login = async () => {
 
   <div class="auth">
     <form action="" @submit.prevent="login" class="auth__form">
-      <MyInput placeholder="your email" name="email" v-model="email">Email</MyInput>
-      <MyInput placeholder="password" name="password" v-model="password">Password</MyInput>
-      <button type="submit">Войти</button>
+      <MyInput :placeholder="'your email'" :name="'email'" v-model="email">Email</MyInput>
+      <MyInput :placeholder="'password'" :name="'password'" v-model="password">Password</MyInput>
+      <MyButton :type="'submit'" :class="'btn--green'">Войти</MyButton>
     </form>
   </div>
 

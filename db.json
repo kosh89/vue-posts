@@ -1,21 +1,21 @@
 {
   "users": [
     {
-      "id": 1,
-      "login": "writer@mail.com",
-      "password": 123456,
+      "id": "1",
+      "login": "writer",
+      "password": "123",
       "role": "writer"
     },
     {
-      "id": 2,
-      "login": "reader@mail.com",
-      "password": 123456,
+      "id": "2",
+      "login": "reader",
+      "password": "123",
       "role": "reader"
     }
   ],
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Название поста 11",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ducimus eveniet nihil nulla quae repudiandae.",
       "claps": 0,
@@ -24,7 +24,7 @@
       "userId": 1
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Название поста 22",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ducimus eveniet nihil nulla quae repudiandae.",
       "claps": 0,
@@ -33,13 +33,22 @@
       "userId": 1
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Название поста 33",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ducimus eveniet nihil nulla quae repudiandae.",
       "claps": 0,
       "createdAt": "2019-09-29T00:00:00.000Z",
       "updateAt": "2019-09-29T00:00:00.000Z",
       "userId": 3
+    },
+    {
+      "id": "1722026982287",
+      "title": "asdasd",
+      "description": "asdasdasd",
+      "claps": 0,
+      "createdAt": "2024-07-26T20:49:42.287Z",
+      "updateAt": "2024-07-26T20:49:42.287Z",
+      "userId": 1
     }
   ]
 }

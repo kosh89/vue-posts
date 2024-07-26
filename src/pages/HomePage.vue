@@ -13,9 +13,10 @@ const { currentUser, posts } = storeToRefs(rootStore);
   <div class="wrapper">
     <div class="posts">
       <ul class="posts__list">
-        <li class="posts__item" v-for="post in posts">
+        <li class="posts__item" v-for="post in posts" :key="post.id">
           <PostItem
               :id="post.id"
+              :userId="post.userId"
               :title="post.title"
               :description="post.description"
               :date="post.createdAt"

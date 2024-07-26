@@ -3,6 +3,7 @@ import { RouterView } from 'vue-router'
 import {useRootStore} from "@/stores/root.js";
 import router from "@/router/index.js";
 import {storeToRefs} from "pinia";
+import {computed} from "vue";
 
 const rootStore = useRootStore();
 const { currentUser } = storeToRefs(rootStore);
@@ -11,11 +12,16 @@ const logout = () => {
   rootStore.clearCurrentUser();
   router.push('/auth');
 }
+
+const isWriter = computed(() => {
+  return rootStore.currentUser.role === 'writer';
+})
 </script>
 
 <template>
   <header class="header">
-    <RouterLink v-if="!currentUser" to="/new/">Новый пост</RouterLink>
+    <RouterLink to="/">Главная</RouterLink>
+    <RouterLink v-if="isWriter" to="/new/">Новый пост</RouterLink>
     <div class="divider"></div>
     <RouterLink v-if="!currentUser" to="/auth/">Логин</RouterLink>
     <a v-if="currentUser" class="" @click="logout">Выйти</a>
@@ -35,6 +41,10 @@ header {
   a {
     color: #fff;
     text-decoration: none;
+  }
+
+  a + a {
+    margin-left: 10px;
   }
 
   .divider {

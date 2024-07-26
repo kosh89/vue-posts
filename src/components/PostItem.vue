@@ -2,12 +2,16 @@
 import {computed, defineProps} from 'vue';
 import {useRootStore} from "@/stores/root.js";
 import {storeToRefs} from "pinia";
+import MyButton from "@/components/MyButton.vue";
 
 const rootStore = useRootStore();
 const { currentUser } = storeToRefs(rootStore);
 
 const props = defineProps({
   id: {
+    required: true,
+  },
+  userId: {
     required: true,
   },
   title: {
@@ -28,8 +32,12 @@ const props = defineProps({
 })
 
 const isAuthor = computed(() => {
-  return currentUser.value.id.toString() === props.id.toString();
+  return currentUser.value.id.toString() === props.userId.toString();
 })
+
+const deleteClick = () => {
+  rootStore.deletePost(props.id);
+}
 </script>
 
 <template>
@@ -42,9 +50,9 @@ const isAuthor = computed(() => {
       <span class="post__date">{{ new Date(date).toLocaleString() }}</span>
 
       <div class="post__buttons" v-if="currentUser.isAuthorized">
-        <button class="post__btn" v-if="!isAuthor">clap</button>
-        <a href="" class="post__btn" v-if="isAuthor">Изменить</a>
-        <button class="post__btn" v-if="isAuthor">Удалить</button>
+        <MyButton :class="'btn--blue'" v-if="!isAuthor">clap</MyButton>
+        <MyButton :class="'btn--blue'" v-if="isAuthor">Изменить</MyButton>
+        <MyButton :class="'btn--blue'" v-if="isAuthor" @click="deleteClick">Удалить</MyButton>
       </div>
     </div>
   </div>
@@ -82,21 +90,6 @@ const isAuthor = computed(() => {
   &__buttons {
     display: flex;
     gap: 8px;
-  }
-
-  &__btn {
-    padding: 4px 8px;
-    font-size: 14px;
-    text-decoration: none;
-    white-space: nowrap;
-    border: none;
-    background-color: lightgray;
-    color: #111;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #bebebe;
-    }
   }
 }
 </style>
