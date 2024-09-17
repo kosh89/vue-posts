@@ -20,6 +20,11 @@ export const router = createRouter({
       path: '/new',
       name: 'create',
       component: PostCreate
+    },
+    {
+      path: '/edit/:id',
+      name: 'edit',
+      component: PostCreate
     }
 
   ]

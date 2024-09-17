@@ -52,6 +52,7 @@ const deleteClick = () => {
       <div class="post__buttons" v-if="currentUser.isAuthorized">
         <MyButton :class="'btn--blue'" v-if="!isAuthor">clap</MyButton>
         <MyButton :class="'btn--blue'" v-if="isAuthor">Изменить</MyButton>
+        <RouterLink :to="{name: 'edit', params: {id: id}}">Изменить</RouterLink>
         <MyButton :class="'btn--blue'" v-if="isAuthor" @click="deleteClick">Удалить</MyButton>
       </div>
     </div>
